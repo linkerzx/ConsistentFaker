@@ -1,0 +1,97 @@
+{
+    "start_ts": "2014-03-02",
+    "end_ts": "2018-01-01",
+    "number_of_companies": 200,
+    "number_of_customers": 50,
+    "min_orders_per_cust": 0,
+    "max_orders_per_cust": 20,
+    "email_deduplication": 1,
+    "number_of_variants": 5,
+    "orders": {
+        "order_items_cnt": {
+            "min": 1,
+            "max": 3
+        },
+        "address_configuration_weights": {
+            "usr_default": 0.8,
+            "usr_random": 0.15,
+            "all_random": 0.05
+        }
+    },
+    "product_variant": {
+        "price_incl_taxes": {
+            "min_int": 0,
+            "max_int": 10
+        }
+    },
+    "order_item": {
+        "quantity": {
+            "min": 1,
+            "max": 3
+        }
+    },
+    "promotion": {
+        "promotion_type_weights": {
+            "no_promotion": 0.6,
+            "coupon": 0.3,
+            "discount": 0.1
+        },
+        "promotion_value_type_weights": {
+            "percentage": 0.8,
+            "fixed_amount": 0.2
+        },
+        "promotion_value_percentage": {
+            "min": 50,
+            "max": 70
+        },
+        "promotion_value_fixed_amount": {
+            "min": 10,
+            "max": 15
+        }
+    },
+    "payment": {
+        "financial_status_weights": {
+            "pending": 0.1,
+            "authorized": 0.65,
+            "partially_paid": 0.05,
+            "paid": 0.5,
+            "partially_refunded": 0.05,
+            "refunded": 0.05,
+            "voided": 0.05
+        },
+        "payment_method_weights":{
+            "visa": 0.3,
+            "mastercard": 0.3,
+            "paypal": 0.2,
+            "direct_debit": 0.1,
+            "cod": 0.1
+        }
+    },
+    "address": {
+        "address_type_weights": {
+            "home": 0.8,
+            "company": 0.1,
+            "external": 0.1
+        }
+    },
+    "email": {
+        "email_random_int_weights": {
+            "year_of_birth": 0.8,
+            "random_int": 0.2
+        },
+        "email_provider_type_weights": {
+            "public": 0.89,
+            "work": 0.1,
+            "custom": 0.01
+        },
+        "email_public_domain_weights": {
+            "gmail.com": 0.5,
+            "hotmail.com": 0.2,
+            "yahoo": 0.1,
+            "msn": 0.05,
+            "outlook.com": 0.05,
+            "icloud": 0.05,
+            "mail.com": 0.05
+        }
+    }
+}
