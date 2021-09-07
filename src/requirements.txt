@@ -1,2 +1,6 @@
+pandas
 faker
 tld
+numpy
+email_validator
+pycountry
