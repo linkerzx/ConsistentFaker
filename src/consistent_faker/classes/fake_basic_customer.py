@@ -204,6 +204,12 @@ class FakeBasicCustomer(FakeBaseObject):
         """
         if date_of_birth and isinstance(date_of_birth, datetime.date):
             return date_of_birth
+        if date_of_birth and isinstance(date_of_birth, str):
+            try:
+                dob = datetime.datetime.fromisoformat(date_of_birth)
+                return dob
+            except:
+                raise ValueError("date_of_birth kwarg not a valid ISO date")
         if date_of_birth:
             raise TypeError(
                 "date_of_birth kwarg should be an instance of datetime.date"
@@ -237,8 +243,10 @@ class FakeBasicCustomer(FakeBaseObject):
         if company and isinstance(company, FakeCompany):
             # If a company information is provvided
             company_out = company
+        if company and isinstance(company, dict):
+            company_out = FakeCompany(**company)
         elif company:
-            raise TypeError("Company kwarg should be an instance of FakeCompany")
+            raise TypeError("Company kwarg should be an instance of FakeCompany %s" % company)
         else:
             if companies:
                 # Pick one at random from the companies provided

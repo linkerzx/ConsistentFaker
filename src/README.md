@@ -47,3 +47,11 @@ from consistent_faker import FakeOrder, FakeCustomer
 this_customer = FakeCustomer()
 FakeOrder(customer=this_customer)
 ```
+
+### Using pipelines
+```
+from consistent_faker import load_default_config
+from consistent_faker.pipelines import gen_fake_orders
+config = load_default_config()
+gen_fake_orders(config)
+```

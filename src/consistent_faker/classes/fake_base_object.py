@@ -58,6 +58,12 @@ class FakeBaseObject:
         """
         if uid and isinstance(uid, uuid.UUID):
             return uid
+        if uid and isinstance(uid, str):
+            try: 
+                uuid_obj = uuid.UUID(uid, version=4)
+                return uuid_obj if str(uuid_obj) == uid else None
+            except ValueError:
+                raise ValueError("uid kwarg str is not a valid uuid.UUIDv4")
         if uid:
             raise TypeError("uid kwarg should be an instance of uuid.UUID")
         return uuid.uuid4()

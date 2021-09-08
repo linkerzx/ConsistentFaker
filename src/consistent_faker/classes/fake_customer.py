@@ -121,6 +121,11 @@ class FakeCustomer(FakeBasicCustomer):
         """
         if default_address and isinstance(default_address, FakeAddress):
             return default_address
+        if default_address and isinstance(default_address, dict):
+            try:
+                return FakeAddress(**default_address)
+            except:
+                raise ValueError("Couldn't unserialize the fake address")
         if default_address:
-            raise TypeError("default_address should be an instance of FakeAddress")
+            raise TypeError("default_address should be an instance of FakeAddress %s" % default_address)
         return FakeAddress(self, config=self.config)
