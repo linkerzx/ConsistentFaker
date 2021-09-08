@@ -25,7 +25,7 @@ from setuptools import setup, find_namespace_packages
 
 setup(
     name="consistent_faker",
-    version="0.1",
+    version="0.11",
     description="consistent_faker, Fake your data consistantly",
     author="Julien Kervizic",
     author_email="julien.kervizic@gmail.com",
